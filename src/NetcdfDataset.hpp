@@ -65,8 +65,8 @@ bool find_nc_variable(const NcFile& ncf, const string& name)
 }
 static string get_nc_string(const NcFile& ncf, const string& name, int offset = 0, bool required = true)
 {
-	static array<long, 2> offsets = {{0, 0}};
-	static array<long, 2> counts = {{1, 0}};
+	static boost::array<long, 2> offsets = {{0, 0}};
+  static boost::array<long, 2> counts = { { 1, 0 } };
 	NcVar *v = load_nc_variable(ncf, name.c_str(), required);
 	if (v)
 	{

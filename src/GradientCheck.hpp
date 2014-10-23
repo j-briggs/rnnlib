@@ -36,7 +36,7 @@ struct GradientCheck
 	vector<real_t>& derivs;
 	bool verbose;
 	bool breakOnError;
-	multimap<string, tuple<string, string, int, int> >& conns;
+	multimap<string, boost::tuple<string, string, int, int> >& conns;
 				
 	//functions
 	GradientCheck(ostream& o, Mdrnn* n, const DataSequence& s, unsigned sf = 6, 

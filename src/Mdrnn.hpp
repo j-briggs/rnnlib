@@ -171,7 +171,7 @@ struct Mdrnn
 	Layer* add_layer(const string& type, const string& name, int size, 
 					 const vector<int>& directions, bool addBias = false, bool recurrent = false)
 	{
-		Layer* layer;
+		Layer* layer = nullptr;
 		if (type == "tanh")
 		{
 			layer = new NeuronLayer<Tanh>(name, directions, size);

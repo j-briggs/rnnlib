@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B863C56B-0FF3-4DB4-9421-48703FAA635C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>rnnlib</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\Boost\include\boost-1_56;..\foreign\netcdf-cxx;..\foreign\netcdf\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Boost\lib;..\foreign\netcdf\lib;..\ide\rnnlib_vs2013\Debug;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>D:\Boost\include\boost-1_56;..\foreign\netcdf-cxx;..\foreign\netcdf\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Boost\lib;..\foreign\netcdf\lib;..\ide\rnnlib_vs2013\Release;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions);_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>netcdf.lib;netcdf-cxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <ProfileGuidedDatabase>$(OutDir)$(TargetName).pgd</ProfileGuidedDatabase>
+    </Link>
+    <Xdcmake>
+      <OutputFile>$(OutDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions);_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>netcdf.lib;netcdf-cxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ActivationFunctions.hpp" />
+    <ClInclude Include="BiasLayer.hpp" />
+    <ClInclude Include="BlockLayer.hpp" />
+    <ClInclude Include="ClassificationLayer.hpp" />
+    <ClInclude Include="CollapseLayer.hpp" />
+    <ClInclude Include="ConfigFile.hpp" />
+    <ClInclude Include="Connection.hpp" />
+    <ClInclude Include="Container.hpp" />
+    <ClInclude Include="CopyConnection.hpp" />
+    <ClInclude Include="DataExporter.hpp" />
+    <ClInclude Include="DataSequence.hpp" />
+    <ClInclude Include="DatasetErrors.hpp" />
+    <ClInclude Include="FullConnection.hpp" />
+    <ClInclude Include="GatherLayer.hpp" />
+    <ClInclude Include="GradientCheck.hpp" />
+    <ClInclude Include="Helpers.hpp" />
+    <ClInclude Include="IdentityLayer.hpp" />
+    <ClInclude Include="InputLayer.hpp" />
+    <ClInclude Include="Layer.hpp" />
+    <ClInclude Include="Log.hpp" />
+    <ClInclude Include="LstmLayer.hpp" />
+    <ClInclude Include="Matrix.hpp" />
+    <ClInclude Include="Mdrnn.hpp" />
+    <ClInclude Include="MultiArray.hpp" />
+    <ClInclude Include="MultilayerNet.hpp" />
+    <ClInclude Include="Named.hpp" />
+    <ClInclude Include="NetcdfDataset.hpp" />
+    <ClInclude Include="NetworkOutput.hpp" />
+    <ClInclude Include="NeuronLayer.hpp" />
+    <ClInclude Include="Optimiser.hpp" />
+    <ClInclude Include="Random.hpp" />
+    <ClInclude Include="Rprop.hpp" />
+    <ClInclude Include="SeqBuffer.hpp" />
+    <ClInclude Include="SoftmaxLayer.hpp" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SteepestDescent.hpp" />
+    <ClInclude Include="String.hpp" />
+    <ClInclude Include="StringAlignment.hpp" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Trainer.hpp" />
+    <ClInclude Include="TranscriptionLayer.hpp" />
+    <ClInclude Include="WeightContainer.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DataExporter.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Random.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="rnnlib.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
